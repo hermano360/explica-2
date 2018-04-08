@@ -21,8 +21,23 @@
                             $('.artist-bio').html(bio)
                         }
                       })
+
+                    $.ajax({
+                        url: `https://api.spotify.com/v1/artists/${artistInfo.id}/top-tracks?country=US`,
+                        type: "GET",
+                        beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + token);},
+                        success: (res) => {
+                          res.tracks.forEach((track,i) => {
+                            $(`.artist-popular-track.${i+1} .artist-popular-track-img img`).attr("src", track.album.images[2].url)
+                            $(`.artist-popular-track.${i+1} .artist-popular-track-info .artist-popular-track-title`).text(track.name)
+                            $(`.artist-popular-track.${i+1} .artist-popular-track-info .artist-popular-track-subtitle .name`).text(track.album.name)
+                            $(`.artist-popular-track.${i+1} .artist-popular-track-info .artist-popular-track-subtitle .year`).text(extractReleaseYearFromDate(track.album.release_date))
+                          })
+                        }
+                      })
                  }
                })
+
              }
            })
 
@@ -51,34 +66,29 @@
               }
             })
 
+            $(window).scroll(function () {
 
+              console.log($(window).scrollTop());
 
-   // $.ajax({
-   //   url: "/artist",
-   //   type: "POST",
-   //   data: {name: searchQuery},
-   //   success: function(res) {
-   //     const artistInfo = JSON.parse(res).response.hits[0].result.primary_artist
-   //
-   //     $('.artist-art').css("background-image", 'url("' + artistInfo.image_url + '")')
-   //     $('.artist-name').html(artistInfo.name)
-   //      console.log(JSON.parse(res).response.hits[0].result.primary_artist.id)
-   //      console.log(JSON.parse(res).response.hits[0].result.primary_artist.image_url)
-   //      console.log(JSON.parse(res).response.hits[1].result.primary_artist.image_url)
-   //      console.log(JSON.parse(res).response.hits[0].result.primary_artist.name)
-   //
-   //      $.ajax({
-   //        url: "/artist-bio",
-   //        type: "POST",
-   //        data: {artistId: '55Aa2cqylxrFIXC767Z865'},
-   //        success: function(res) {
-   //          console.log(res)
-   //        }
-   //       });
-   //
-   //   }
-   //  });
+              if ($(window).scrollTop() > 300) {
+                $('.artist-nav-bar').addClass('fixed')
+                $('.artist-nav-bar-placeholder').addClass('fixed')
+              }
+
+              if ($(window).scrollTop() < 300) {
+                $('.artist-nav-bar').removeClass('fixed')
+                $('.artist-nav-bar-placeholder').removeClass('fixed')
+              }
+            });
  })
+
+
+
+
+ function extractReleaseYearFromDate(date) {
+   let regex = /^(\d{4})-\d{2}-\d{2}$/
+   return date.replace(regex, '$1')
+ }
 
 
 
