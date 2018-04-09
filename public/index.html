@@ -30,12 +30,15 @@
       <div class="artist-information-top">
         <div class="artist-name  side-padding"></div>
         <div class="artist-social-media">
-          <a class="artist-social-facebook"><i class="fa fa-facebook"></i></a>
-          <a class="artist-social-twitter"><i class="fa fa-twitter"></i></a>
-          <a class="artist-social-instagram"><i class="fa fa-instagram"></i></a>
+          <a class="artist-social-facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a class="artist-social-twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a class="artist-social-instagram" target="_blank"><i class="fa fa-instagram"></i></a>
         </div>
       </div>
       <div class="artist-bio side-padding"></div>
+      <div class="artist-bio-hide">
+        <i class="fa fa-ellipsis-h"></i>
+      </div>
       <div class="artist-nav-bar-container">
       <div class="artist-nav-bar">
         <div class="artist-nav-bar-item popular">Popular</div>
@@ -67,87 +70,9 @@
     </div>
     <div class="artist-popular-tracks-container">
 
-    <div class="artist-popular-tracks">
-      <div class="artist-popular-track 1">
-        <div class="artist-popular-track-img">
-          <img src="https://i.scdn.co/image/cd50dd2817296536b97262ce84a7659276f0ac28"/>
-        </div>
-        <div class="artist-popular-track-info">
-          <div class="artist-popular-track-title">
-            A Milli
-          </div>
-          <div class="artist-popular-track-subtitle">
-            <span class="name" >The Carter III</span> &middot; <span class="year">2008</span>
-          </div>
-        </div>
-      </div>
-      <div class="artist-popular-track 2">
-        <div class="artist-popular-track-img">
-          <img src="https://i.scdn.co/image/cd50dd2817296536b97262ce84a7659276f0ac28"/>
-        </div>
-        <div class="artist-popular-track-info">
-          <div class="artist-popular-track-title">
-            A Milli
-          </div>
-          <div class="artist-popular-track-subtitle">
-            <span class="name" >The Carter III</span> &middot; <span class="year">2008</span>
-          </div>
-        </div>
-      </div>
-      <div class="artist-popular-track 3">
-        <div class="artist-popular-track-img">
-          <img src="https://i.scdn.co/image/cd50dd2817296536b97262ce84a7659276f0ac28"/>
-        </div>
-        <div class="artist-popular-track-info">
-          <div class="artist-popular-track-title">
-            A Milli
-          </div>
-          <div class="artist-popular-track-subtitle">
-            <span class="name" >The Carter III</span> &middot; <span class="year">2008</span>
-          </div>
-        </div>
-      </div>
+    <div class="artist-popular-tracks 1">
     </div>
-    <div class="artist-popular-tracks">
-      <div class="artist-popular-track 4">
-        <div class="artist-popular-track-img">
-          <img src="https://i.scdn.co/image/cd50dd2817296536b97262ce84a7659276f0ac28"/>
-        </div>
-        <div class="artist-popular-track-info">
-          <div class="artist-popular-track-title">
-            A Milli
-          </div>
-          <div class="artist-popular-track-subtitle">
-            <span class="name" >The Carter III</span> &middot; <span class="year">2008</span>
-          </div>
-        </div>
-      </div>
-      <div class="artist-popular-track 5">
-        <div class="artist-popular-track-img">
-          <img src="https://i.scdn.co/image/cd50dd2817296536b97262ce84a7659276f0ac28"/>
-        </div>
-        <div class="artist-popular-track-info">
-          <div class="artist-popular-track-title">
-            A Milli
-          </div>
-          <div class="artist-popular-track-subtitle">
-            <span class="name" >The Carter III</span> &middot; <span class="year">2008</span>
-          </div>
-        </div>
-      </div>
-      <div class="artist-popular-track 6">
-        <div class="artist-popular-track-img">
-          <img src="https://i.scdn.co/image/cd50dd2817296536b97262ce84a7659276f0ac28"/>
-        </div>
-        <div class="artist-popular-track-info">
-          <div class="artist-popular-track-title">
-            A Milli A Milli A Milli A Milli
-          </div>
-          <div class="artist-popular-track-subtitle">
-            <span class="name" >The Carter III</span> &middot; <span class="year">2008</span>
-          </div>
-        </div>
-      </div>
+    <div class="artist-popular-tracks 2">
     </div>
   </div>
   <!-- /Tracks container -->
@@ -156,7 +81,7 @@
     <div class="calendar-filter-info">
       <div class="dropdown">
         <div class="calendar-filter-year dropdown-toggle" id="menu1" type="button" data-toggle="dropdown"><span class="date"></span><span class="caret"></span></div>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <ul class="dropdown-menu calendar-filter-year-menu" role="menu" aria-labelledby="menu1">
         </ul>
       </div>
       <div class="calendar-filter-button">
@@ -170,36 +95,20 @@
   <div class="album-section" id="albums">
     <div class="album-section-header">
       <div class="album-section-title">
-        Albums
+        <span>Albums</span>
         <span class="album-section-search">
           <i class="fa fa-search" aria-hidden="true"></i>
         </span>
+        <input class="album-section-search-input" type="text" />
       </div>
       <div class="album-section-filter">
         <i class="fa fa-filter"></i>
       </div>
     </div>
     <div class="line-break"></div>
+  <div class="album-section-vinyl-container">
+  </div>
 
-    <div class="album-section-vinyl">
-      <div class="vinyl-art">
-        <div class="vinyl-art-cover">
-          <img src="assets/images/jcole-albuma.jpg" class="vinyl-art-cover-0" alt="..." />
-        </div>
-        <div class="vinyl-art-disc">
-          <img src="assets/images/jcole-albuma.jpg" class="vinyl-art-cover-0" alt="..." />
-          <div class="vinyl-disc"></div>
-        </div>
-      </div>
-      <div class="album-description 0">
-        <div class="album-title">
-            I am Not a Human Being
-        </div>
-        <div class="album-info">
-          2017 &middot; 23 songs, 1 hr 27 min
-        </div>
-      </div>
-    </div>
   </div>
   <div class="related-artists" id="related">
     <div class="related-artists-title">
@@ -207,27 +116,6 @@
     </div>
     <div class="line-break"></div>
     <div class="related-artists-container">
-      <div class="related-artist">
-        <div class="related-artist-overlay">
-          <div class="related-artist-name">
-            Related
-          </div>
-        </div>
-      </div>
-      <div class="related-artist">
-        <div class="related-artist-overlay">
-          <div class="related-artist-name">
-            Related
-          </div>
-        </div>
-      </div>
-      <div class="related-artist">
-        <div class="related-artist-overlay">
-          <div class="related-artist-name">
-            Related
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   </div>

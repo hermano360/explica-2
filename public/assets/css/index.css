@@ -50,21 +50,20 @@ body {
   font-weight: 500;
   font-family: 'Work Sans', sans-serif;
   display: inline-block;
-  width:50%;
+  width:72%;
 }
 .artist-information .artist-social-media {
   font-size: 4.1vw;
   font-weight: 500;
   font-family: 'Work Sans', sans-serif;
-  margin-bottom: 10px;
   display: inline-block;
-  width:47%;
+  width:25%;
   text-align: right;
   padding-right:6%;
   color: #95999C;
 }
 .artist-information .artist-social-media .fa {
-  margin: 0 2.5%;
+  margin: 0 4%;
   color: #95999C;
 }
 
@@ -82,6 +81,16 @@ body {
   /* For right now */
   height: 4.1em;
   overflow-y: scroll;
+}
+
+.artist-bio-hide{
+  height: auto;
+  width: auto;
+  line-height: 2;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .artist-nav-bar {
@@ -187,35 +196,36 @@ body {
   margin-bottom: 2.9vw;
 }
 .artist-popular-track-img {
-  width: 15vw;
+  width: 55px;
 }
 .artist-popular-track-img img {
   width: 100%;
 }
 .artist-popular-track-info {
-  margin-left: 4vw;
+  margin-left: 15px;
   white-space: nowrap;
   overflow: scroll;
   width: 153px;
 }
 
 .artist-popular-track-info .artist-popular-track-title {
-  font-size: 6vw;
+  font-size: 24px;
   color: white;
   letter-spacing: 1px;
   display: block;
   padding: 0;
   position: relative;
-  margin-top: 2.1vw;
+  margin-top: 8px;
   width: 100%;
   line-height: 1;
 }
 .artist-popular-track-info .artist-popular-track-subtitle {
-  font-size: 2.7vw;
+  font-size: 11px;
   position: relative;
   color: rgb(89,90,92);
   letter-spacing: 1px;
-  margin-top: -.5vw;
+  margin-top: 4px;
+  line-height: 1;
 }
 
 .calendar-filter {
@@ -253,6 +263,16 @@ body {
   font-size: 5vw;
 }
 
+.calendar-filter-year-menu{
+  background-color: #0A0B0D;
+}
+.calendar-filter-year-menu li .menuitem{
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .calendar-dates {
   margin-bottom: 1.5vh;
 }
@@ -278,6 +298,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   line-height: 1;
+  text-align: center;
 }
 
 .calendar-event .date .month{
@@ -285,6 +306,40 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 0.6vh;
+}
+.event-object-link{
+  width: 100%;
+}
+
+.event-object {
+  width: 60%;
+  height: 5.5vh;
+  margin-top: 3.5vh;
+  margin-left: 4%;
+  background-position: 50% 25%;
+  background-size: cover;
+}
+.event-object .event-info {
+  width: 100%;
+  height:100%;
+  color: white;
+  background: linear-gradient(to bottom, rgba(0,0,0,.3) 0, rgba(0,0,0,1) 100%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding-left: 5%;
+}
+.event-object .event-info .event-info-name {
+  font-size: 3.5vw;
+  white-space: nowrap;
+  line-height: 1;
+}
+.event-object .event-info .event-info-venue {
+  font-size: 3vw;
+  white-space: nowrap;
+  line-height: 1;
+  text-transform: capitalize;
 }
 
 .calendar-event:first-child .date-divider{
@@ -320,6 +375,10 @@ body {
   border: 2.5px solid white;
   border-radius: 50%;
 }
+.album-section-vinyl-container {
+  display: flex;
+  flex-direction: column;
+}
 
 .album-section {
   background-color: rgba(41,44,51, 1);
@@ -340,7 +399,7 @@ body {
   letter-spacing: .8vw;
   text-align: left;
   display:inline-block;
-  width: 45%;
+  width: 80%;
   font-weight: 500;
 }
 .album-section-search {
@@ -349,12 +408,23 @@ body {
   color:white;
   font-size: 4vw;
 }
+.album-section-search-input{
+  background-color:rgba(41,44,51, 1);
+  color: white;
+  border: 1px solid rgb(22,27,31);
+  padding-left: 5%;
+  color: rgba(184, 185, 184, 1);
+  font-style: italic;
+  font-size: 3.2vw;
+  font-family: 'Work Sans', sans-serif;
+  text-transform: uppercase;
+}
 .album-section-filter {
   margin-left: .8vw;
   display:inline-block;
   color:white;
   font-size: 4vw;
-  width: 50%;
+  width: 11%;
   text-align: right;
 }
 
@@ -364,6 +434,10 @@ body {
   padding-left: 6%;
   padding-right: 6%;
   display: flex;
+}
+
+.album-section-vinyl.hidden {
+  display: none;
 }
 .vinyl-art {
   position: relative;
@@ -389,6 +463,7 @@ body {
   height:30vw;
   width:30vw;
 }
+
 .vinyl-art-disc img{
   border-radius: 50%;
   position: absolute;
@@ -408,6 +483,25 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
+}
+
+.animation-on {
+    animation-name: rotate;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: linear;
+}
+
+
+
+@keyframes rotate
+{
+     0%   { transform: rotate(0deg); }
+     25%  { transform: rotate(64deg); }
+     50%  { transform: rotate(128deg); }
+     75%  { transform: rotate(192deg); }
+     100% { transform: rotate(256deg); }
 }
 
 .vinyl-art-cover img, .vinyl-art-disc img{
@@ -472,10 +566,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-image: url('http://www.atlanticrecords.com/sites/g/files/g2000003466/f/styles/landingpage-thumbnails/public/201611/BrunoMars_Graphics_Atlantic_SiteImage_ArtistHeader_1900x700.jpg?itok=SxDz_EHB');
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: center center;
+  background-size: cover;
 }
+
+
+
 .related-artist-overlay {
   z-index: 5;
   position: relative;
