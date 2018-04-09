@@ -65,6 +65,7 @@ body {
 }
 .artist-information .artist-social-media .fa {
   margin: 0 2.5%;
+  color: #95999C;
 }
 
 
@@ -92,22 +93,23 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  padding-left:9%;
+  position: relative;
 }
 
-.artist-nav-bar.fixed {
+.artist-nav-bar-container.fixed {
   top: 0;
   z-index: 100;
   position: fixed;
   width: 100%;
   left:0;
-  padding-left: 9%;
-  border-bottom: 2px solid black;
 }
 .artist-nav-bar-placeholder {
   display: none;
 }
 .artist-nav-bar-placeholder.fixed {
   display: block;
+  visibility: hidden;
 }
 
 
@@ -204,20 +206,21 @@ body {
   display: block;
   padding: 0;
   position: relative;
-  margin-top: 1vw;
+  margin-top: 2.1vw;
   width: 100%;
+  line-height: 1;
 }
 .artist-popular-track-info .artist-popular-track-subtitle {
   font-size: 2.7vw;
   position: relative;
-  color: rgb(144,148,151);
+  color: rgb(89,90,92);
   letter-spacing: 1px;
-  margin-top: -1vw;
+  margin-top: -.5vw;
 }
 
 .calendar-filter {
   background-color: #0A0B0D;
-  background: linear-gradient(to bottom, rgba(10,11,13,0) 0, rgba(10,11,13,.7) 9%,rgba(10,11,13,1) 11%, rgba(10,11,13,1) 89%,rgba(10,11,13,.7) 91%, rgba(10,11,13,0) 100%);
+  background: linear-gradient(to bottom, rgba(12,13,15,0) 0, rgba(12,13,15,.7) 9%,rgba(12,13,15,1) 11%, rgba(12,13,15,1) 89%,rgba(12,13,15,.7) 91%, rgba(12,13,15,0) 100%);
   height: 11.5vh;
   display: flex;
   flex-direction: column;
@@ -238,6 +241,10 @@ body {
   text-transform: uppercase;
   letter-spacing: 3px;
 }
+
+.dropdown {
+  width:100%;
+}
 .calendar-filter-button {
   width: 50%;
   text-align: right;
@@ -247,7 +254,6 @@ body {
 }
 
 .calendar-dates {
-  min-height: 100px;
   margin-bottom: 1.5vh;
 }
 
@@ -282,7 +288,7 @@ body {
 }
 
 .calendar-event:first-child .date-divider{
-  background: linear-gradient(to bottom, rgba(10,11,13,0) 0, rgba(255,255,255,0.2) 10%, rgba(255,255,255,0.2) 100%);
+  background: linear-gradient(to bottom, rgba(41,44,51,0) 0, rgba(41,44,51,1) 10%, rgba(41,44,51,1) 100%);
 }
 
 
@@ -296,11 +302,11 @@ body {
 
 .calendar-event .date-divider {
   height: 100%;
-  width: 2px;
+  width: 3px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(41,44,51, 1);
   align-items: center;
   margin: 0 4.5%;
 }
@@ -316,7 +322,7 @@ body {
 }
 
 .album-section {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(41,44,51, 1);
   min-height:100px;
 }
 .album-section-header{
@@ -368,7 +374,7 @@ body {
 
 .vinyl-art-cover {
   position: absolute;
-  z-index:4;
+  z-index:1;
   top: 0;
   left: 0;
   height:30vw;
@@ -377,7 +383,7 @@ body {
 
 .vinyl-art-disc {
   position: absolute;
-  z-index: 3;
+  z-index: 0;
   top: 0px;
   left: 13vw;
   height:30vw;
@@ -437,7 +443,7 @@ body {
 
 
 .related-artists {
-  min-height:400px;
+  margin-bottom: 10vh;
 }
 
 .related-artists-title {
@@ -493,4 +499,8 @@ body {
   font-family: 'Work Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.hide-calendar-event{
+  display: none;
 }

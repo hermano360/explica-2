@@ -14,11 +14,9 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 1234;
 
-
-
 app.get('/token', function(req, res) {
-  var client_id = 'e9f8db119f1a4493bf9376e73176c9fb'; // Your client id
-  var client_secret = '169ed9a5bf9642348e0bd00e816ab635'; // Your secret
+  var client_id = '56cf8f99087b42a782fdbe27579f9f1e'; // Your client id
+  var client_secret = 'c0d3ffe9755940409ac45b0cd5b1245c'; // Your secret
 
   var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
@@ -40,6 +38,7 @@ app.get('/token', function(req, res) {
 
 
 app.post('/artist', function(req, res) {
+  console.log(req.params)
   var authOptions = {
     url: 'https://api.genius.com/search?q=' + req.body.name,
     headers: {
@@ -93,9 +92,40 @@ app.post('/instagram', function(req, res,next) {
     })
 });
 
+app.post('/vividPerformerID', function(req, res,next) {
+  var options = {
+    method: 'GET',
+    url: 'https://webservices.vividseats.com/rest/v2/getPerformer?accessId=1803&performerName='+req.body.name,
+    headers:
+     { "Content-type": 'application/json',
+       Authorization: 'f96c847d-9805-11e7-8349-22000ae8246e' } };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    res.send((response.body))
+  });
+});
+
+app.post('/vividEvents', function(req, res,next) {
+  var options = {
+    method: 'GET',
+    url: 'https://webservices.vividseats.com/rest/v2/getEvents?accessId=1803&performerId='+req.body.id,
+    headers:
+     { "Content-type": 'application/json',
+       Authorization: 'f96c847d-9805-11e7-8349-22000ae8246e' } };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    res.send(body)
+  });
+});
+
+
+
 
 
 app.get('/*', function(req, res,next) {
+  console.log(req.params)
   res.status(200).sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 

@@ -11,6 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" async></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://use.fontawesome.com/c974f65ff6.js" async></script>
+
   <script src="assets/js/index.js" async></script>
   <link rel="stylesheet" href="assets/css/index.css">
 </head>
@@ -25,31 +26,38 @@
 
 
 <div class="artist-fade">
-    <div class="artist-information side-padding">
+    <div class="artist-information">
       <div class="artist-information-top">
-        <div class="artist-name"></div>
+        <div class="artist-name  side-padding"></div>
         <div class="artist-social-media">
           <a class="artist-social-facebook"><i class="fa fa-facebook"></i></a>
           <a class="artist-social-twitter"><i class="fa fa-twitter"></i></a>
           <a class="artist-social-instagram"><i class="fa fa-instagram"></i></a>
         </div>
       </div>
-      <div class="artist-bio"></div>
+      <div class="artist-bio side-padding"></div>
+      <div class="artist-nav-bar-container">
       <div class="artist-nav-bar">
-        <div class="artist-nav-bar-item active">News</div>
-        <div class="artist-nav-bar-item">Popular</div>
-        <div class="artist-nav-bar-item">Calendar</div>
-        <div class="artist-nav-bar-item">Albums</div>
-        <div class="artist-nav-bar-item">Related</div>
+        <div class="artist-nav-bar-item popular">Popular</div>
+        <div class="artist-nav-bar-item calendar">Calendar</div>
+        <div class="artist-nav-bar-item albums">Albums</div>
+        <div class="artist-nav-bar-item related">Related</div>
       </div>
-      <div class="artist-nav-bar-placeholder">
-        <div class="artist-nav-bar-item">.</div>
-      </div>
-    </div>
-    <div class="artist-background-cover">
       <div class="line-break"></div>
     </div>
-    <div class="popular-artist-container">
+
+      <div class="artist-nav-bar-placeholder">
+        <div class="artist-nav-bar">
+          <div class="artist-nav-bar-item active">.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="artist-background-cover">
+
+    </div>
+    <div id="popular" class="popular-artist-container">
       <div class="popular-title">
         Popular
       </div>
@@ -144,10 +152,12 @@
   </div>
   <!-- /Tracks container -->
 
-  <div class="calendar-filter">
+  <div class="calendar-filter" id="calendar">
     <div class="calendar-filter-info">
-      <div class="calendar-filter-year">
-        Sep. 2017
+      <div class="dropdown">
+        <div class="calendar-filter-year dropdown-toggle" id="menu1" type="button" data-toggle="dropdown"><span class="date"></span><span class="caret"></span></div>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        </ul>
       </div>
       <div class="calendar-filter-button">
         <i class="fa fa-filter"></i>
@@ -155,41 +165,9 @@
     </div>
   </div>
   <div class="calendar-dates">
-    <div class="calendar-event">
-      <div class="date">
-        <div class="day">21</div>
-        <div class="month">Sep</div>
-      </div>
-      <div class="date-divider">
-        <div class="circle"></div>
-      </div>
-      <div class="event-object"></div>
-    </div>
-    <div class="line-break"></div>
-    <div class="calendar-event">
-      <div class="date">
-        <div class="day">21</div>
-        <div class="month">Sep</div>
-      </div>
-      <div class="date-divider">
-        <div class="circle"></div>
-      </div>
-      <div class="event-object"></div>
-    </div>
-    <div class="line-break"></div>
-    <div class="calendar-event">
-      <div class="date">
-        <div class="day">21</div>
-        <div class="month">Sep</div>
-      </div>
-      <div class="date-divider">
-        <div class="circle"></div>
-      </div>
-      <div class="event-object"></div>
-    </div>
   </div>
   <div class="line-break"></div>
-  <div class="album-section">
+  <div class="album-section" id="albums">
     <div class="album-section-header">
       <div class="album-section-title">
         Albums
@@ -223,7 +201,7 @@
       </div>
     </div>
   </div>
-  <div class="related-artists">
+  <div class="related-artists" id="related">
     <div class="related-artists-title">
       Related
     </div>
@@ -254,12 +232,8 @@
   </div>
   </div>
 
-
-
-
-
-
   </div>
+
 </body>
 
 </html>
