@@ -13,6 +13,12 @@
     z-index: -1;
 }
 
+@media screen and (min-width: 545px) {
+  .artist-art {
+     background-size:cover;
+  }
+}
+
 body {
   background: rgba(22,27,31,1);
 }
@@ -30,7 +36,7 @@ body {
 }
 
 .artist-fade {
-  background: linear-gradient(to bottom, rgba(22,27,31,.0) 0%,rgba(22,27,31,0.5) 14.9vh,rgba(22,27,31,0.9) 24.9vh, rgba(22,27,31,.95) 25.5vh,rgba(22,27,31,1) 46vh)
+  background: linear-gradient(to bottom, rgba(22,27,31,.0) 0%,rgba(22,27,31,0.5) 13.5vh,rgba(22,27,31,0.9) 22.9vh, rgba(22,27,31,.95) 25.5vh,rgba(22,27,31,1) 41vh)
 }
 .artist-information {
   z-index: 2;
@@ -44,9 +50,12 @@ body {
   display: flex;
   align-items: center;
 }
+.artist-information-top.hide-top {
+  visibility: hidden;
+}
 
 .artist-information .artist-name {
-  font-size: 7.8vw;
+  font-size: 30px;
   font-weight: 500;
   font-family: 'Work Sans', sans-serif;
   display: inline-block;
@@ -62,6 +71,13 @@ body {
   padding-right:6%;
   color: #95999C;
 }
+@media screen and (min-width: 545px) {
+  .artist-information .artist-social-media {
+     font-size: 22px;
+  }
+}
+
+
 .artist-information .artist-social-media .fa {
   margin: 0 4%;
   color: #95999C;
@@ -74,7 +90,7 @@ body {
 
 .artist-bio {
   color: #95999C;
-  font-size: 3.9vw;
+  font-size: 14px;
   font-weight:lighter;
   font-family: 'Work Sans', sans-serif;
   padding-right:10%;
@@ -106,6 +122,8 @@ body {
   position: relative;
 }
 
+
+
 .artist-nav-bar-container.fixed {
   top: 0;
   z-index: 100;
@@ -124,10 +142,10 @@ body {
 
 .artist-nav-bar-item {
   font-family: 'Work Sans', sans-serif;
-  color: rgb(144,148,151);
-  font-size: 4.0vw;
+  color: rgb(70,79,86);
+  font-size: 15px;
   text-transform: uppercase;
-  margin-right: 4vw;
+  margin-right: 15px;
   padding-left: 1.1vw;
   padding-bottom: 1vh;
   padding-right: 1.1vw;
@@ -165,10 +183,10 @@ body {
   padding-top: 5%;
   color: rgba(184, 185, 184, 1);
   font-style: italic;
-  font-size: 3.2vw;
+  font-size: 12px;
   font-family: 'Work Sans', sans-serif;
   text-transform: uppercase;
-  letter-spacing: .8vw;
+  letter-spacing: 3px;
   text-align: left;
   padding-left: 9%;
   padding-bottom: .5vh;
@@ -206,6 +224,12 @@ body {
   white-space: nowrap;
   overflow: scroll;
   width: 153px;
+}
+
+@media screen and (min-width: 553px) {
+  .artist-popular-track-info {
+     width: 29vw;
+  }
 }
 
 .artist-popular-track-info .artist-popular-track-title {
@@ -250,10 +274,18 @@ body {
   color: white;
   text-transform: uppercase;
   letter-spacing: 3px;
+  line-height: 1;
 }
+
+
+
+
 
 .dropdown {
   width:100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .calendar-filter-button {
   width: 50%;
@@ -261,6 +293,15 @@ body {
   padding-right: 6%;
   color: white;
   font-size: 5vw;
+}
+@media screen and (min-width: 375px) {
+  .calendar-filter-year {
+     font-size: 15px;
+  }
+
+  .calendar-filter-button {
+    font-size: 18.75px;
+  }
 }
 
 .calendar-filter-year-menu{
@@ -274,7 +315,7 @@ body {
 }
 
 .calendar-dates {
-  margin-bottom: 1.5vh;
+  margin-bottom: -1.5vh;
 }
 
 .calendar-event {
@@ -289,10 +330,9 @@ body {
   flex-direction: column;
   justify-content: center;
   font-family: 'Work Sans', sans-serif;
-
 }
 .calendar-event .date .day{
-  font-size: 7.5vw;
+  font-size: 28px;
   font-weight:500;
   display: flex;
   flex-direction: column;
@@ -302,6 +342,7 @@ body {
 }
 
 .calendar-event .date .month{
+  font-size: 14px;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -312,6 +353,7 @@ body {
 }
 
 .event-object {
+
   width: 60%;
   height: 5.5vh;
   margin-top: 3.5vh;
@@ -331,15 +373,22 @@ body {
   padding-left: 5%;
 }
 .event-object .event-info .event-info-name {
-  font-size: 3.5vw;
+  font-size: 11.5px;
   white-space: nowrap;
-  line-height: 1;
+  line-height: 1.5;
 }
 .event-object .event-info .event-info-venue {
-  font-size: 3vw;
+  font-size: 9.75px;
   white-space: nowrap;
   line-height: 1;
   text-transform: capitalize;
+}
+
+@media screen and (min-width: 476px) {
+  .event-object {
+     max-width: 225px;
+  }
+
 }
 
 .calendar-event:first-child .date-divider{
@@ -387,26 +436,26 @@ body {
 .album-section-header{
   padding-top: 3%;
   padding-left: 6%;
-  padding-bottom: .7vh;
+  padding-bottom: 5px;
 
 }
 .album-section-title {
   color: rgba(184, 185, 184, 1);
   font-style: italic;
-  font-size: 3.2vw;
+  font-size: 12px;
   font-family: 'Work Sans', sans-serif;
   text-transform: uppercase;
-  letter-spacing: .8vw;
-  text-align: left;
+  letter-spacing: 3px;
+  text-align: center;
   display:inline-block;
   width: 80%;
   font-weight: 500;
 }
 .album-section-search {
-  margin-left: .8vw;
+  margin-left: 3px;
   display:inline-block;
   color:white;
-  font-size: 4vw;
+  font-size: 15px;
 }
 .album-section-search-input{
   background-color:rgba(41,44,51, 1);
@@ -415,25 +464,26 @@ body {
   padding-left: 5%;
   color: rgba(184, 185, 184, 1);
   font-style: italic;
-  font-size: 3.2vw;
+  font-size: 12px;
   font-family: 'Work Sans', sans-serif;
   text-transform: uppercase;
 }
 .album-section-filter {
-  margin-left: .8vw;
+  margin-left: 3px;
   display:inline-block;
   color:white;
-  font-size: 4vw;
+  font-size: 15px;
   width: 11%;
   text-align: right;
 }
 
 .album-section-vinyl {
-  margin-top:3vh;
-  padding-bottom: 3vh;
+  margin-top:18px;
+  padding-bottom: 18px;
   padding-left: 6%;
   padding-right: 6%;
   display: flex;
+  justify-content: center;
 }
 
 .album-section-vinyl.hidden {
@@ -442,8 +492,8 @@ body {
 .vinyl-art {
   position: relative;
   display: inline-block;
-  width:50%;
-  height:30vw;
+  width:165px;
+  height:112.5px;
 }
 
 .vinyl-art-cover {
@@ -451,18 +501,22 @@ body {
   z-index:1;
   top: 0;
   left: 0;
-  height:30vw;
-  width:30vw;
+  height:112.5px;
+  width:112.5px;
 }
 
 .vinyl-art-disc {
   position: absolute;
   z-index: 0;
   top: 0px;
-  left: 13vw;
-  height:30vw;
-  width:30vw;
+  left: 49px;
+  height:112.5px;
+  width:112.5px;
 }
+
+
+
+
 
 .vinyl-art-disc img{
   border-radius: 50%;
@@ -520,8 +574,8 @@ body {
 }
 
 .album-description .album-title {
-  font-size: 5.7vw;
-  margin-left: 1.1vw;
+  font-size: 21px;
+  margin-left: 4px;
   color: white;
   line-height: 1;
   text-transform: capitalize;
@@ -530,9 +584,29 @@ body {
 }
 
 .album-description .album-info {
-  font-size: 2.3vw;
-  margin-left: 1.1vw;
+  font-size: 8.5px;
+  margin-left: 4.5px;
   color: rgb(144,148,151);
+}
+
+
+
+
+
+@media screen and (min-width: 750px) {
+  .artist-information .artist-information-top{
+    max-width:750px;
+    margin-left:calc(50vw - 375px);
+  }
+  .artist-information .artist-bio{
+    max-width:750px;
+    margin-left:calc(50vw - 375px);
+    padding-left: 7%;
+  }
+  .artist-information .artist-hide{
+    max-width:750px;
+    margin-left:calc(50vw - 375px);
+  }
 }
 
 
@@ -544,10 +618,10 @@ body {
   padding-top: 8%;
   color: rgba(184, 185, 184, 1);
   font-style: italic;
-  font-size: 3.2vw;
+  font-size: 12px;
   font-family: 'Work Sans', sans-serif;
   text-transform: uppercase;
-  letter-spacing: .8vw;
+  letter-spacing: 3px;
   text-align: center;
   padding-bottom: .3vh;
 }
@@ -592,7 +666,7 @@ body {
   text-align: center;
   color: white;
   font-weight: 500;
-  font-size: 3.2vw;
+  font-size: 10px;
   font-family: 'Work Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -600,4 +674,57 @@ body {
 
 .hide-calendar-event{
   display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .vinyl-art {
+    width:27.5vw;
+    height:18.75vw;
+  }
+
+  .vinyl-art-cover {
+    height:18.75vw;
+    width:18.75vw;
+  }
+
+  .vinyl-art-disc {
+
+    left: 8.75vw;
+    height:18.75vw;
+    width:18.75vw;
+  }
+
+  .album-description .album-title {
+    font-size: 3.5vw;
+    margin-left: .7vw;
+  }
+
+  .album-description .album-info {
+    font-size: 1.4vw;
+    margin-left: .7vw;
+    color: rgb(144,148,151);
+  }
+
+  .artist-information {
+    margin-top: 12vw;
+
+  }
+
+    .artist-nav-bar {
+       justify-content: center;
+    }
+    .popular-title{
+      line-height: 4;
+      padding-top: 0;
+    }
+    .related-artists-title{
+      line-height: 4;
+      padding-top: 0;
+    }
+
+    .album-section-header {
+      line-height: 3;
+      padding-top: 0;
+    }
+
 }

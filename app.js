@@ -38,7 +38,7 @@ app.get('/token', function(req, res) {
 
 
 app.post('/artist', function(req, res) {
-  console.log(req.params)
+
   var authOptions = {
     url: 'https://api.genius.com/search?q=' + req.body.name,
     headers: {
@@ -54,7 +54,7 @@ app.post('/artist', function(req, res) {
 });
 
 app.post('/artist-bio', function(req, res,next) {
-  console.log(req.body)
+
   request.get(`https://open.spotify.com/artist/${req.body.artistId}`, function(error, response, html) {
     let $ = cheerio.load(html)
     let string = html
@@ -120,12 +120,8 @@ app.post('/vividEvents', function(req, res,next) {
   });
 });
 
-
-
-
-
 app.get('/*', function(req, res,next) {
-  console.log(req.params)
+
   res.status(200).sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 

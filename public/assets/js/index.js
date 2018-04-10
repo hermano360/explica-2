@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   var audioObject = null
   var regex = /(\S*)#(\S*)/
   var searchQuery = window.location.href.split("?").length > 1
@@ -153,8 +152,9 @@ $(document).ready(function() {
             },
             success: function(bio) {
               $('.artist-bio').html(bio)
-              $('.artist-bio-hide').on('click',function(){
+              $('.artist-bio-hide').on('click', function() {
                 $('.artist-bio').toggleClass('hidden')
+                $('.artist-information-top').toggleClass('hide-top')
               })
 
             }
@@ -237,7 +237,7 @@ $(document).ready(function() {
               xhr.setRequestHeader('Authorization', 'Bearer ' + token);
             },
             success: (res) => {
-              res.artists.slice(0,3).forEach(function(relatedArtist,i){
+              res.artists.slice(0, 3).forEach(function(relatedArtist, i) {
                 $('.related-artists-container').append(`
 
                   <div class="related-artist" style="background-image: url('${relatedArtist.images[0].url}')">
@@ -255,8 +255,6 @@ $(document).ready(function() {
             }
           })
 
-
-
           $.ajax({
             url: `https://api.spotify.com/v1/artists/${artistInfo.id}/albums?limit=20`,
             type: "GET",
@@ -264,21 +262,18 @@ $(document).ready(function() {
               xhr.setRequestHeader('Authorization', 'Bearer ' + token);
             },
             success: (res) => {
-              let filteredAlbums = filterOutAlbumsWithSameName(res.items).filter(function(album){
+              let filteredAlbums = filterOutAlbumsWithSameName(res.items).filter(function(album) {
                 return album.release_date_precision === 'day'
-              })
-
-              .sort(function(a,b){
+              }).sort(function(a, b) {
                 return a.name - b.name
-              }).sort(function(a,b){
+              }).sort(function(a, b) {
                 return Number(extractReleaseYearFromDate(b.release_date)) - Number(extractReleaseYearFromDate(a.release_date))
               })
-              let csvAlbums = filteredAlbums.map(function(album){
+              let csvAlbums = filteredAlbums.map(function(album) {
                 return album.id
-              }).reduce(function(a,b){
+              }).reduce(function(a, b) {
                 return `${a},${b}`
               })
-
 
               $.ajax({
                 url: `https://api.spotify.com/v1/albums/?ids=${csvAlbums}`,
@@ -287,15 +282,18 @@ $(document).ready(function() {
                   xhr.setRequestHeader('Authorization', 'Bearer ' + token);
                 },
                 success: (response) => {
-                  let finalAlbums = response.albums.sort(function(a,b){
+                  let finalAlbums = response.albums.sort(function(a, b) {
                     return a.name - b.name
-                  }).sort(function(a,b){
+                  }).sort(function(a, b) {
                     return Number(extractReleaseYearFromDate(b.release_date)) - Number(extractReleaseYearFromDate(a.release_date))
                   })
 
-                  finalAlbums.forEach(function(item,i) {
-                    $('.album-section-vinyl-container').append(`
-                      <div class="album-section-vinyl ${i} ${i>0 ? 'hidden' : ''}">
+                  finalAlbums.forEach(function(item, i) {
+                    $('.album-section-vinyl-container').append(
+                      `
+                      <div class="album-section-vinyl ${i} ${i > 0
+                      ? 'hidden'
+                      : ''}">
                       <a class="vinyl-art" href="${item.href}">
                         <div class="vinyl-art-cover">
                           <img src="${item.images[0].url}" class="vinyl-art-cover-0" alt="..." />
@@ -318,30 +316,19 @@ $(document).ready(function() {
                   })
                 }
 
-
-
-
               })
 
-
-
-
-              $('.album-section-search-input').on('input',function(){
+              $('.album-section-search-input').on('input', function() {
                 $('.album-section-vinyl').addClass('hidden')
                 let newAlbum = null
                 let inputValue = $(this).val().toLowerCase()
-                console.log(inputValue)
-                filteredAlbums.forEach(function(album,i){
-                  if(album.name.toLowerCase().indexOf(inputValue) > -1 && newAlbum === null){
-                    console.log(i)
+                filteredAlbums.forEach(function(album, i) {
+                  if (album.name.toLowerCase().indexOf(inputValue) > -1 && newAlbum === null) {
                     newAlbum = i
                   }
                 })
                 $(`.album-section-vinyl.${newAlbum}`).removeClass('hidden')
               })
-
-
-
 
             }
           })
@@ -492,8 +479,6 @@ function totalMillisecondsInAlbum(track_collection) {
   })
   return totalMsCount
 }
-
-
 
 extractMonthsFromList = (eventList) => {
   let monthCollection = []
